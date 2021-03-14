@@ -1,6 +1,6 @@
 # U-Boot docker
 
-Create a boot loader (`u-boot.bin`) for your embedded hardware.
+Create a [U-Boot](https://www.denx.de/wiki/U-Boot) loader for your embedded hardware.
 
 ## Dependencies
 
@@ -8,19 +8,20 @@ Create a boot loader (`u-boot.bin`) for your embedded hardware.
 
 ## Getting Started
 
-    $ docker build --build-arg CONFIG=nanopi_neo_defconfig --build-arg VERSION=v2020.04 --tag=das:u-boot .
+    $ docker build --build-arg CONFIG=<board_name>_defconfig --build-arg VERSION=v2020.04 --tag=das:u-boot .
 
 ### Compile using build-time arguments
 
-    $ docker run -it -v `pwd`:/board --rm das:u-boot
+    $ docker run -it -v $PWD:/board --rm das:u-boot
 
 ### Launch the interactive set-up
 
-    $ docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix --rm das:u-boot
+    $ docker run -it -v $PWD:/board -v /tmp/.X11-unix:/tmp/.X11-unix --rm das:u-boot
 
 ## References
 
-- U-Boot [Wiki](https://www.denx.de/wiki/U-Boot) and [Project](https://github.com/u-boot/u-boot)
+- [Board configurations](https://github.com/u-boot/u-boot)
+- [Releases](https://github.com/u-boot/u-boot/releases)
 
 ## License and Warranty
 
