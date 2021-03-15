@@ -112,7 +112,7 @@ WORKDIR /u-boot
 ENV CROSS_COMPILE=${TOOLCHAIN}
 ENV DEF_CONFIG=${CONFIG}
 ENV PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:/home/USER/Qt/5.11.2/gcc_64/lib/pkgconfig"
-ENV BL31="bl31.bin"
+ENV BL31="/output/bl31.bin"
 ENV TERM="xterm"
 
 ADD . /output
