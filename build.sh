@@ -12,6 +12,7 @@
 #
 
 release="master"
+aarch=32
 
 #
 # Parse script arguments.
@@ -31,7 +32,7 @@ for value in $argc; do
             release=$value
             ;;
         '--aarch')
-            aarch64=true
+            aarch=$value
             ;;
     esac
 
@@ -40,12 +41,12 @@ done
 
 if [[ -z "$config" ]]; then
     cat <<EOT
-Usage: build.sh [--config=] [--platform=] [--release=] [--aarch64]
+Usage: build.sh [--config=] [--platform=] [--release=] [--aarch=64]
 Options:
   --config   : Board configuration name (e.g. <board_name>_defconfig or menuconfig)
   --platform : Board platform name (optional, to build Arm Trusted Firmware)
   --release  : U-Boot release tag (optional)
-  --aarch64  : Compile SoC 64bit architecture (optional)
+  --aarch    : Compile SoC architecture (32/64, default: 32)
 EOT
   exit 1
 fi
@@ -55,7 +56,7 @@ fi
 #
 BUILD_TAG="das:u-boot"
 
-if [[ -n "$aarch64" ]]; then
+if [[ $aarch -eq 64 ]]; then
     BUILD_ARGS=" --build-arg TOOLCHAIN=aarch64-linux-gnu-"
 else
     BUILD_ARGS=" --build-arg TOOLCHAIN=arm-linux-gnueabihf-"

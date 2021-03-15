@@ -9,12 +9,12 @@ Create a [U-Boot](https://www.denx.de/wiki/U-Boot) loader for your ARM embedded 
 ## Getting Started
 
 ```txt
-Usage: build.sh [--config=] [--platform=] [--release=] [--aarch64]
+Usage: build.sh [--config=] [--platform=] [--release=] [--aarch=64]
 Options:
   --config   : Board configuration name (e.g. <board_name>_defconfig or menuconfig)
   --platform : Board platform name (optional, to build Arm Trusted Firmware)
   --release  : U-Boot release tag (optional)
-  --aarch64  : Compile SoC 64bit architecture (optional)
+  --aarch    : Compile SoC architecture (32/64, default: 32)
 ```
 
 ### Examples
@@ -25,7 +25,7 @@ Compile for [SUNXI](https://linux-sunxi.org) [H3](https://linux-sunxi.org/H3) So
 
 .. [H5](https://linux-sunxi.org/H5) and [A64](https://linux-sunxi.org/A64) SoC series ([NanoPi NEO2](https://wiki.friendlyarm.com/wiki/index.php/NanoPi_NEO2))
 
-    $ ./build.sh --config nanopi_neo2_defconfig --platform sun50i_a64 --aarch64
+    $ ./build.sh --config nanopi_neo2_defconfig --platform sun50i_a64 --aarch 64
 
 ### Launch the interactive set-up
 
