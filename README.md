@@ -1,6 +1,6 @@
-# U-Boot docker
+# U-Boot builder
 
-Create a [U-Boot](https://www.denx.de/wiki/U-Boot) loader for your embedded hardware.
+Create a [U-Boot](https://www.denx.de/wiki/U-Boot) loader for your ARM embedded hardware.
 
 ## Dependencies
 
@@ -8,26 +8,40 @@ Create a [U-Boot](https://www.denx.de/wiki/U-Boot) loader for your embedded hard
 
 ## Getting Started
 
-    $ docker build --build-arg CONFIG=<board_name>_defconfig --build-arg VERSION=v2020.04 --tag=das:u-boot .
+```txt
+Usage: build.sh [--config=] [--platform=] [--release=] [--aarch64]
+Options:
+  --config   : Board configuration name (e.g. <board_name>_defconfig or menuconfig)
+  --platform : Board platform name (optional, to build Arm Trusted Firmware)
+  --release  : U-Boot release tag (optional)
+  --aarch64  : Compile SoC 64bit architecture (optional)
+```
 
-### Compile using build-time arguments
+### Examples
 
-    $ docker run -it -v $PWD:/board --rm das:u-boot
+Compile for [SUNXI](https://linux-sunxi.org) [H3](https://linux-sunxi.org/H3) SoC series ([NanoPi NEO](https://wiki.friendlyarm.com/wiki/index.php/NanoPi_NEO))
+
+    $ ./build.sh --config nanopi_neo_defconfig
+
+.. [H5](https://linux-sunxi.org/H5) and [A64](https://linux-sunxi.org/A64) SoC series ([NanoPi NEO2](https://wiki.friendlyarm.com/wiki/index.php/NanoPi_NEO2))
+
+    $ ./build.sh --config nanopi_neo2_defconfig --platform sun50i_a64 --aarch64
 
 ### Launch the interactive set-up
 
-    $ docker run -it -v $PWD:/board -v /tmp/.X11-unix:/tmp/.X11-unix --rm das:u-boot
+    $ ./build.sh --config menuconfig
 
 ## References
 
-- [Board configurations](https://github.com/u-boot/u-boot)
+- [Board configurations](https://github.com/u-boot/u-boot/configs)
+- [Platforms](https://github.com/ARM-software/arm-trusted-firmware/tree/eeb77da64684424ef275330e3e15d8350ecc1b07/docs/plat)
 - [Releases](https://github.com/u-boot/u-boot/releases)
 
 ## License and Warranty
 
 This package is distributed in the hope that it will be useful, but without any warranty; without even the implied warranty of merchantability or fitness for a particular purpose.
 
-*U-Boot docker* is provided under the terms of the [MIT license](http://www.opensource.org/licenses/mit-license.php)
+*U-Boot builder* is provided under the terms of the [MIT license](http://www.opensource.org/licenses/mit-license.php)
 
 ## Maintainer
 
