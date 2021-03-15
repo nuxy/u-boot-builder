@@ -117,7 +117,7 @@ ENV TERM="xterm"
 
 ADD . /output
 
-CMD make ${DEF_CONFIG} && make && cp u-boot* /output && rm -f bl31.bin
+CMD make ${DEF_CONFIG} && make && cp u-boot* /output && rm -f /output/bl31.bin
 EOF
 
 BUILD_ARGS+=" --build-arg CONFIG=$config --build-arg VERSION=$release"
