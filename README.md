@@ -33,7 +33,7 @@ Compile for [SUNXI](https://linux-sunxi.org) [H3](https://linux-sunxi.org/H3) So
 
 ## References
 
-- [Board configurations](https://github.com/u-boot/u-boot/configs)
+- [Board configurations](https://github.com/u-boot/u-boot/tree/master/configs)
 - [Platforms](https://github.com/ARM-software/arm-trusted-firmware/tree/eeb77da64684424ef275330e3e15d8350ecc1b07/docs/plat)
 - [Releases](https://github.com/u-boot/u-boot/releases)
 
